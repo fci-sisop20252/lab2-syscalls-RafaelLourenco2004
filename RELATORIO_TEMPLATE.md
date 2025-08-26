@@ -19,7 +19,7 @@ strace -e write ./ex1b_write
 **2. Por que há diferença entre os dois métodos? Consulte o docs/printf_vs_write.md**
 
 ```
-[Sua análise aqui]
+A diferença se deve ao fato de que quando a função "write" é chamada a operação de saída é executada imediatamente, logo a quantidade de execuções é igual a quantidade de chamadas. Por outro lado, a função "printf", além de funcionar como uma camada de abstração acima de "write", tem um buffer onde os paramêmetros de saída são armazenados até uma certa condição ser atendida e todas as operações de saída serem executadas de uma vez. Como essa condição pode variar, a quantidade de operações de saída executadas nem sempre será igual a quantidade de chamadas da função "printf".
 ```
 
 **3. Qual método é mais previsível? Por quê você acha isso?**
