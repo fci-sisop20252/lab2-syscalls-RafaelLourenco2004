@@ -25,7 +25,7 @@ A diferença se deve ao fato de que quando a função "write" é chamada a opera
 **3. Qual método é mais previsível? Por quê você acha isso?**
 
 ```
-[Sua análise aqui]
+A função "write" é mais previsível porque a cada chamada uma operação de saída é executada, ao contrário de "printf" onde a quantidade de operações de saída executadas nem sempre se iguala a quantidade de chamadas, por conta do buffer de dados. 
 ```
 
 ---
