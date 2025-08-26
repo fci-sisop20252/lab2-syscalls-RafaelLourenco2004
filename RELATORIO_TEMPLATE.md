@@ -14,7 +14,7 @@ strace -e write ./ex1b_write
 
 **1. Quantas syscalls write() cada programa gerou?**
 - ex1a_printf: 8 syscalls
-- ex1b_write: _____ syscalls
+- ex1b_write: 7 syscalls
 
 **2. Por que há diferença entre os dois métodos? Consulte o docs/printf_vs_write.md**
 
