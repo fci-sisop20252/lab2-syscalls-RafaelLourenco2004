@@ -46,19 +46,19 @@ strace -e openat,read,close ./ex2_leitura
 **1. Qual file descriptor foi usado? Por que não começou em 0, 1 ou 2?**
 
 ```
-[Sua análise aqui]
+O file descriptor 3 foi usado, pois ele era o primeiro livre, além dos files descriptors reservados 1, 2 e 3.
 ```
 
 **2. Como você sabe que o arquivo foi lido completamente?**
 
 ```
-[Sua análise aqui]
+A única forma de saber que o arquivo foi lido completamente é se a função "read" retornar 0, enquanto o retorno não for igual a 0 ou -1 a função deve ser chamada repetidamente. 
 ```
 
 **3. Por que verificar retorno de cada syscall?**
 
 ```
-[Sua análise aqui]
+Deve-se vericar o retorno de cada syscall, pois seu comportamento pode variar. 
 ```
 
 ---
