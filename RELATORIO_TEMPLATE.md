@@ -13,19 +13,19 @@ strace -e write ./ex1b_write
 ### 🔍 Análise
 
 **1. Quantas syscalls write() cada programa gerou?**
-- ex1a_printf: _____ syscalls
-- ex1b_write: _____ syscalls
+- ex1a_printf: 8 syscalls
+- ex1b_write: 7 syscalls
 
 **2. Por que há diferença entre os dois métodos? Consulte o docs/printf_vs_write.md**
 
 ```
-[Sua análise aqui]
+A diferença se deve ao fato de que quando a função "write" é chamada a operação de saída é executada imediatamente, logo a quantidade de execuções é igual a quantidade de chamadas. Por outro lado, a função "printf", além de funcionar como uma camada de abstração acima de "write", tem um buffer onde os paramêmetros de saída são armazenados até uma certa condição ser atendida e todas as operações de saída serem executadas de uma vez. Como essa condição pode variar, a quantidade de operações de saída executadas nem sempre será igual a quantidade de chamadas da função "printf".
 ```
 
 **3. Qual método é mais previsível? Por quê você acha isso?**
 
 ```
-[Sua análise aqui]
+A função "write" é mais previsível porque a cada chamada uma operação de saída é executada, ao contrário de "printf" onde a quantidade de operações de saída executadas nem sempre se iguala a quantidade de chamadas, por conta do buffer de dados. 
 ```
 
 ---
