@@ -75,29 +75,29 @@ Deve-se vericar o retorno de cada syscall, pois seu comportamento pode variar.
 
 | Buffer Size | Chamadas read() | Tempo (s) |
 |-------------|-----------------|-----------|
-| 16          |                 |           |
-| 64          |                 |           |
-| 256         |                 |           |
-| 1024        |                 |           |
+| 16          |          89       |     0,001290      |
+| 64          |            23     |     0.000743      |
+| 256         |             8    |     0.000317       |
+| 1024        |             4    |        0.000708   |
 
 ### 🔍 Análise
 
 **1. Como o tamanho do buffer afeta o número de syscalls?**
 
 ```
-[Sua análise aqui]
+Quanto maior o tamanho do buffer mais bytes podem ser lidos a cada chamada `a "read", logo a quantidade de chamadas necessárias para ler todos os bytes do arquivo é menor.
 ```
 
 **2. Todas as chamadas read() retornaram BUFFER_SIZE bytes? Discorra brevemente sobre**
 
 ```
-[Sua análise aqui]
+Não, "read" pode retornar -1, sinalizando que houve um erro durante a leitura, 0, indicando que o conteúdo do arquivo foi lido completamente e um número inteiro positivo, que indica a quantidade de bytes lidos. A quantidade de bytes lidos nem sempre será igual ao tamanho do buffer, pois existem alguns cenários onde a chamada irá ler menos bytes do que o esperado como no caso de haver menos bytes não lidos no arquivo do que o tamanho do buffer.  
 ```
 
 **3. Qual é a relação entre syscalls e performance?**
 
 ```
-[Sua análise aqui]
+Sempre que ocorre uma chamada a uma syscall o precessador deve trocar o modo de execução de "User mode" para "Kernel" o que gera um overhead a cada chamada de syscall. 
 ```
 
 ---

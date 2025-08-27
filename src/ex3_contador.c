@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#define BUFFER_SIZE 64   // Buffer pequeno para forçar múltiplas leituras
+#define BUFFER_SIZE 1024  // Buffer pequeno para forçar múltiplas leituras
 
 int main() {
     char buffer[BUFFER_SIZE];
@@ -69,7 +69,7 @@ int main() {
     /*
      * TODO 4: Verificar se houve erro na leitura
      */
-    if (status == -1) {
+    if (bytes_lidos == -1) {
         perror("Erro na leitura");
         close(fd);
         return 1;
