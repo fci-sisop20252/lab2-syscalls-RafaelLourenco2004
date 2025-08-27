@@ -33,8 +33,8 @@ A função "write" é mais previsível porque a cada chamada uma operação de s
 ## 2️⃣ Exercício 2 - Leitura de Arquivo
 
 ### 📊 Resultados da execução:
-- File descriptor: _____
-- Bytes lidos: _____
+- File descriptor: 3
+- Bytes lidos: 127
 
 ### 🔧 Comando strace:
 ```bash
@@ -66,10 +66,10 @@ Deve-se vericar o retorno de cada syscall, pois seu comportamento pode variar.
 ## 3️⃣ Exercício 3 - Contador com Loop
 
 ### 📋 Resultados (BUFFER_SIZE = 64):
-- Linhas: _____ (esperado: 25)
-- Caracteres: _____
-- Chamadas read(): _____
-- Tempo: _____ segundos
+- Linhas: 25 (esperado: 25)
+- Caracteres: 1300
+- Chamadas read(): 2
+- Tempo: 0,000059 segundos
 
 ### 🧪 Experimentos com buffer:
 
