@@ -105,10 +105,10 @@ Sempre que ocorre uma chamada a uma syscall o precessador deve trocar o modo de 
 ## 4️⃣ Exercício 4 - Cópia de Arquivo
 
 ### 📈 Resultados:
-- Bytes copiados: _____
-- Operações: _____
-- Tempo: _____ segundos
-- Throughput: _____ KB/s
+- Bytes copiados: 1364
+- Operações: 6
+- Tempo: 0,000208 segundos
+- Throughput: 6404,00 KB/s
 
 ### ✅ Verificação:
 ```bash
@@ -121,31 +121,31 @@ Resultado: [ ] Idênticos [ ] Diferentes
 **1. Por que devemos verificar que bytes_escritos == bytes_lidos?**
 
 ```
-[Sua análise aqui]
+Se a quantidade de bytes escritos no arquivo de destino for diferente da quantidade de bytes lidos do arquivo original quer dizer que houve algum erro durante o processo de cópia, logo a intergridade da cópia gerada está comprometida.  
 ```
 
 **2. Que flags são essenciais no open() do destino?**
 
 ```
-[Sua análise aqui]
+ Apenas "O_WRONLY", pois é possível criar um arquivo de destino vazio manualmente.  
 ```
 
 **3. O número de reads e writes é igual? Por quê?**
 
 ```
-[Sua análise aqui]
+Para arquivos em disco sim, pois a quantidade de bytes lidos vai ser igual a quantidade de bytes escritos. 
 ```
 
 **4. Como você saberia se o disco ficou cheio?**
 
 ```
-[Sua análise aqui]
+Se o disco ficar cheio a função write irá retornar -1.
 ```
 
 **5. O que acontece se esquecer de fechar os arquivos?**
 
 ```
-[Sua análise aqui]
+Se alguém esquecer de fechar os arquivos eles ficarão reservados para o precesso que os abriu até o este finalizar sua execução, impossibilitando outro processo de acessar estes arquivos desnecessariamente.  
 ```
 
 ---
@@ -157,19 +157,19 @@ Resultado: [ ] Idênticos [ ] Diferentes
 **1. Como as syscalls demonstram a transição usuário → kernel?**
 
 ```
-[Sua análise aqui]
+Sempre que ocorre uma syscall o processador muda do estado de "usuário" para "kernel", permitindo que o processo em execução acesse o hardware e os recursos do sistema operacional através do kernel. 
 ```
 
 **2. Qual é o seu entendimento sobre a importância dos file descriptors?**
 
 ```
-[Sua análise aqui]
+Os files descriptors funcionam como uma identificação para um determinado arquivo o que possibilita o sistema operacional identificar quais arquivos estão sendo acessados em um determinado momento. 
 ```
 
 **3. Discorra sobre a relação entre o tamanho do buffer e performance:**
 
 ```
-[Sua análise aqui]
+Quanto maior o tamanho do buffer, menor a quantidade de syscalls chamadas. 
 ```
 
 ### ⚡ Comparação de Performance
@@ -180,12 +180,12 @@ time ./ex4_copia
 time cp dados/origem.txt dados/destino_cp.txt
 ```
 
-**Qual foi mais rápido?** _____
+**Qual foi mais rápido?** O cp
 
 **Por que você acha que foi mais rápido?**
 
 ```
-[Sua análise aqui]
+Eu acho que a diferença se deve, principalmente, ao nível de abstração de cada uma. Meu programa é mais abtraído do que "cp" que funciona com chamadas diretas a funções do sistema operacional. 
 ```
 
 ---
