@@ -145,7 +145,7 @@ Se o disco ficar cheio a função write irá retornar -1.
 **5. O que acontece se esquecer de fechar os arquivos?**
 
 ```
-Se alguém esquecer de fechar os arquivos eles ficarão reservados para o precesso que os abriu até o este finalizar sua execução, impossibilitando outro processo de acessar estes arquivos desnecessariamente.  
+Se alguém esquecer de fechar os arquivos eles ficarão reservados para o precesso que os abriu até este finalizar sua execução, impossibilitando outro processo de acessar estes arquivos desnecessariamente.  
 ```
 
 ---
